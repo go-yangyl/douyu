@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.douyu.helloworld.v1";
+option java_outer_classname = "HelloWorldProtoV1";
+option go_package = "helloworld/v1;helloworldv1";
+
+package helloworld.v1;
+
+import "common/v1/msg.proto";
+
+// The greeting service definition.
+service GreeterService {
+  // Sends a greeting
+  rpc SayHello (SayHelloRequest) returns (SayHelloResponse) {}
+}
+
+
+// The request message containing the user's name.
+message SayHelloRequest {
+  // name ...
+  string name = 1;
+}
+
+// The response message containing the greetings
+message SayHelloResponse {
+  // error
+  uint32 error = 1;
+  // msg
+  string msg = 2;
+  // data ...
+  common.v1.CommonData data = 3;
+}
